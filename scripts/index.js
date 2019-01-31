@@ -7,7 +7,7 @@
    window.BPMN_VIEWER_JS_LOADED = true;
    var script = document.createElement("script");
    script.id = 'bpmn-viewer-script';
-   script.src = "https://unpkg.com/bpmn-js@3.1.0/dist/bpmn-navigated-viewer.development.js";
+   script.src = "https://unpkg.com/bpmn-js@3.2.0/dist/bpmn-navigated-viewer.production.min.js";
    document.head.appendChild(script);
  })();
 
