@@ -1,0 +1,28 @@
+{
+  "title": "BPMN 2.0 Diagrams",
+  "description": "BPMN 2.0 Diagrams H5P integration",
+  "majorVersion": 1,
+  "minorVersion": 0,
+  "patchVersion": 0,
+  "runnable": 1,
+  "author": "HTK",
+  "license": "MIT",
+  "machineName": "H5P.BpmnJS",
+  "preloadedJs": [
+    {
+      "path": "scripts/index.js"
+    }
+  ],
+  "preloadedCss": [
+    {
+      "path": "styles/main.css"
+    }
+  ],
+  "editorDependencies": [
+    {
+      "machineName": "H5PEditor.BpmnJS",
+      "majorVersion": 1,
+      "minorVersion": 0
+    }
+  ]
+}

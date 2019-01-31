@@ -1,0 +1,8 @@
+[
+  {
+    "name": "diagram",
+    "label": "",
+    "type": "text",
+    "widget": "bpmnjs"
+  }
+]
