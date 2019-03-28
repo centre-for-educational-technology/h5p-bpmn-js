@@ -2,8 +2,8 @@
   "title": "BPMN 2.0 Diagrams",
   "description": "BPMN 2.0 Diagrams H5P integration",
   "majorVersion": 1,
-  "minorVersion": 0,
-  "patchVersion": 1,
+  "minorVersion": 1,
+  "patchVersion": 0,
   "runnable": 1,
   "author": "HTK",
   "license": "MIT",
@@ -18,11 +18,24 @@
       "path": "styles/main.css"
     }
   ],
+  "preloadedDependencies": [
+    {
+      "machineName": "FontAwesome",
+      "majorVersion": 4,
+      "minorVersion": 5
+    },
+    {
+      "machineName": "H5P.JoubelUI",
+      "majorVersion": 1,
+      "minorVersion": 3
+    }
+  ],
   "editorDependencies": [
     {
       "machineName": "H5PEditor.BpmnJS",
       "majorVersion": 1,
       "minorVersion": 0
     }
-  ]
+  ],
+  "embedTypes": ["iframe"]
 }

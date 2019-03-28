@@ -1,5 +1,39 @@
 [
   {
+    "name": "description",
+    "label": "Description",
+    "type": "text",
+    "widget": "html",
+    "enterMode": "p",
+    "tags": [
+      "strong",
+      "em",
+      "del",
+      "sub",
+      "sup",
+      "u",
+      "strike",
+      "ul",
+      "ol",
+      "h2",
+      "h3",
+      "blockquote",
+      "a",
+      "table",
+      "hr"
+    ],
+    "optional": true,
+    "description": "A description of the diagram or a task for the students.",
+    "placeholder": "Diagram description or a task text"
+  },
+  {
+    "name": "userEditable",
+    "label": "User editable",
+    "type": "boolean",
+    "description": "Allow users to edit the diagram and download the edited version.",
+    "default": false
+  },
+  {
     "name": "diagram",
     "label": "",
     "type": "text",

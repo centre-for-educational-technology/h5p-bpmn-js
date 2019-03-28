@@ -1,3 +1,11 @@
-.h5p-bpmn-js-viewer-canvas {
+.h5p-bpmn-js-canvas {
   height: 700px;
+}
+
+.h5p-bpmn-js-description {
+  margin: 1em;
+}
+
+.h5p-bpmn-download-diagram-button i.fa, .h5p-bpmn-download-svg-button i.fa {
+  margin-right: 0.5em;
 }
