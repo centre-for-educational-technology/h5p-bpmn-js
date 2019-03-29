@@ -59,6 +59,27 @@
         "label": "Text of \"Download SVG\" button",
         "importance": "low",
         "default": "Download SVG"
+      },
+      {
+        "name": "reset",
+        "type": "text",
+        "label": "Text of \"Reset\" control",
+        "importance": "low",
+        "default": "Reset"
+      },
+      {
+        "name": "zoomIn",
+        "type": "text",
+        "label": "Text of \"Zoom in\" control",
+        "importance": "low",
+        "default": "Zoom in"
+      },
+      {
+        "name": "zoomOut",
+        "type": "text",
+        "label": "Text of \"Zoom out\" control",
+        "importance": "low",
+        "default": "Zoom out"
       }
     ]
   }

@@ -22,6 +22,18 @@
         {
           "label": "\"Lae SVG alla\" nupu tekst",
           "default": "Lae SVG alla"
+        },
+        {
+          "label": "\"Lähtesta\" nupu text",
+          "default": "Lähtesta"
+        },
+        {
+          "label": "\"Suurenda\" nupu text",
+          "default": "Suurenda"
+        },
+        {
+          "label": "\"Vähenda\" nupu text",
+          "default": "Vähenda"
         }
       ]
     }

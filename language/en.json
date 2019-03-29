@@ -22,6 +22,18 @@
         {
           "label": "Text of \"Download SVG\" button",
           "default": "Download SVG"
+        },
+        {
+          "label": "Text of \"Reset\" control",
+          "default": "Reset"
+        },
+        {
+          "label": "Text of \"Zoom in\" control",
+          "default": "Zoom in"
+        },
+        {
+          "label": "Text of \"Zoom out\" control",
+          "default": "Zoom out"
         }
       ]
     }

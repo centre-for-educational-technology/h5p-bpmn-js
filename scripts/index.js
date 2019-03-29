@@ -23,6 +23,45 @@ H5P.BpmnJS = (function ($, JoubelUI) {
       timer = setTimeout(fn, timeout);
     };
   }
+
+  /**
+   * Adds zoom controls to diagram canvas.
+   * @param {Object} canvas Canvas instance
+   * @param {Object} l10n   Translations
+   */
+  function add_zoom_controls(canvas, l10n) {
+    var max = 4,
+      step = 0.2;
+
+    $container = $(canvas.getContainer());
+    $controls = $('<div>', {
+      class: 'zoom-controls'
+    });
+    $controls.append($('<div>', {
+      class: 'zoom-control reset',
+      title: l10n.reset,
+      html: '<i class="fa fa-crosshairs" aria-hidden="true"></i>'
+    }).on('click', function() {
+      canvas.zoom('fit-viewport');
+    }));
+    $controls.append($('<div>', {
+      class: 'zoom-control zoom-in',
+      title: l10n.zoomIn,
+      html: '<i class="fa fa-search-plus" aria-hidden="true"></i>'
+    }).on('click', function() {
+      canvas.zoom(Math.min(canvas.zoom(false) + step, max), 'auto');
+    }));
+    $controls.append($('<div>', {
+      class: 'zoom-control zoom-out',
+      html: '<i class="fa fa-search-minus" aria-hidden="true"></i>',
+      title: l10n.zoomOut,
+    }).on('click', function() {
+      canvas.zoom(Math.max(canvas.zoom(false) - step, step), 'auto');
+    }));
+
+    $container.append($controls);
+  }
+
   /**
    * Constructor function.
    */
@@ -36,6 +75,9 @@ H5P.BpmnJS = (function ($, JoubelUI) {
     this.l10n = $.extend({
       downloadDiagram: 'Download diagram',
       downloadSVG: 'Download SVG',
+      reset: 'Reset',
+      zoomIn: 'Zoom in',
+      zoomOut: 'Zoom out'
     }, options.l10n !== undefined ? options.l10n : {});
 
     this.loadBpmnAssets();
@@ -109,6 +151,8 @@ H5P.BpmnJS = (function ($, JoubelUI) {
         var canvas = instance.get('canvas');
         canvas.zoom('fit-viewport');
 
+        add_zoom_controls(canvas, _this.l10n);
+
         setTimeout(function() {
           _this.trigger('bpmnImportFinished');
         }, 500);
@@ -127,34 +171,37 @@ H5P.BpmnJS = (function ($, JoubelUI) {
     this.showDiagram($container);
 
     if (this.isUserEditable()) {
+      var dataPrefix = 'data:application/bpmn20-xml;charset=UTF-8,';
+
       JoubelUI.createButton({
         class: 'h5p-bpmn-download-diagram-button',
         html: '<i class="fa fa-download" aria-hidden="true"></i>' + this.l10n.downloadDiagram,
-        href: 'data:application/bpmn20-xml;charset=UTF-8,',
+        href: dataPrefix,
         download: 'diagram.bpmn',
         appendTo: $container
       });
       JoubelUI.createButton({
         class: 'h5p-bpmn-download-svg-button',
         html: '<i class="fa fa-file-image-o" aria-hidden="true"></i>' + this.l10n.downloadSVG,
-        href: 'data:application/bpmn20-xml;charset=UTF-8,',
+        href: dataPrefix,
         download: 'diagram.svg',
         appendTo: $container
       });
 
       var _this = this;
-      var cb = debounce(function() {
-        var dataPrefix = 'data:application/bpmn20-xml;charset=UTF-8,';
+      var updateDataCb = function(err, data, selector) {
+        if (err) {
+          return console.error(err);
+        }
 
+        $container.find(selector).attr('href', dataPrefix + encodeURIComponent(data));
+      };
+      var cb = debounce(function() {
         _this.bpmnInstance.saveSVG(function(err, svg) {
-          if (!err) {
-            $container.find('.h5p-bpmn-download-svg-button').attr('href', dataPrefix + encodeURIComponent(svg));
-          }
+          updateDataCb(err, svg, '.h5p-bpmn-download-svg-button');
         });
         _this.bpmnInstance.saveXML({ format: true }, function(err, xml) {
-          if (!err) {
-            $container.find('.h5p-bpmn-download-diagram-button').attr('href', dataPrefix + encodeURIComponent(xml));
-          }
+          updateDataCb(err, xml, '.h5p-bpmn-download-diagram-button');
         });
       }, 500);
 
