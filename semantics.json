@@ -38,5 +38,28 @@
     "label": "",
     "type": "text",
     "widget": "bpmnjs"
+  },
+  {
+    "name": "l10n",
+    "type": "group",
+    "label": "Localize",
+    "importance": "low",
+    "common": true,
+    "fields": [
+      {
+        "name": "downloadDiagram",
+        "type": "text",
+        "label": "Text of \"Download diagram\" button",
+        "importance": "low",
+        "default": "Download diagram"
+      },
+      {
+        "name": "downloadSVG",
+        "type": "text",
+        "label": "Text of \"Download SVG\" button",
+        "importance": "low",
+        "default": "Download SVG"
+      }
+    ]
   }
 ]

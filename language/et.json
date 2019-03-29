@@ -1,0 +1,29 @@
+{
+  "semantics": [
+    {
+      "label": "Kirjeldus",
+      "description": "Diagrammi kirjeldus või ülesande tekst.",
+      "placeholder": "Diagrammi kirjeldus või ülesande tekst"
+    },
+    {
+      "label": "Luba muutmist",
+      "description": "Luba kasutajatel diagrammi muuta ning muudetud versiooni alla laadida."
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": "Tõlgi",
+      "fields": [
+        {
+          "label": "\"Lae diagramm alla\" nupu tekst",
+          "default": "Lae diagramm alla"
+        },
+        {
+          "label": "\"Lae SVG alla\" nupu tekst",
+          "default": "Lae SVG alla"
+        }
+      ]
+    }
+  ]
+}

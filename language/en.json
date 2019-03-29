@@ -1,0 +1,29 @@
+{
+  "semantics": [
+    {
+      "label": "Description",
+      "description": "A description of the diagram or a task for the students.",
+      "placeholder": "Diagram description or a task text"
+    },
+    {
+      "label": "User editable",
+      "description": "Allow users to edit the diagram and download the edited version."
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": "Localize",
+      "fields": [
+        {
+          "label": "Text of \"Download diagram\" button",
+          "default": "Download diagram"
+        },
+        {
+          "label": "Text of \"Download SVG\" button",
+          "default": "Download SVG"
+        }
+      ]
+    }
+  ]
+}
